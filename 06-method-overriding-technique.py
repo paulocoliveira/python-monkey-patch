@@ -1,11 +1,27 @@
+from selenium import webdriver
+
+# Base test case class
 class BaseTestCase:
     def run_test(self):
-        print("Common test execution logic")
+        # Instantiate WebDriver
+        driver = webdriver.Chrome()
+
+        # Common test execution logic
+        driver.get("https://www.example.com")
+
+        # Close the browser
+        driver.quit()
+
 
 # Derived class: CustomTestCase
 class CustomTestCase(BaseTestCase):
     def run_test(self):
-        print("Additional setup steps")
+        # Additional setup steps
+        driver = webdriver.Chrome()
+        driver.maximize_window()
+
         # Call base class method
         super().run_test()
-        print("Additional teardown steps")
+
+        # Additional teardown steps
+        driver.close()

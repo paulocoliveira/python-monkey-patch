@@ -4,6 +4,8 @@ from selenium.webdriver.remote.webelement import WebElement
 import pytest
 import os
 from time import sleep
+import datetime
+
 
 @pytest.fixture(params=["chrome-Windows11", "firefox-macOSVentura"],scope="class")
 def driver(request):
@@ -21,8 +23,8 @@ def driver(request):
     lt_options = {
         "user": username,
         "accessKey": accessToken,
-        "build": "monkey patching build",
-        "name": "monkey patching test",
+        "build": "monkey patching new build",
+        "name": "monkey patching new test",
         "platformName": platform,
         "w3c": True,
         "browserName": "Chrome",
@@ -45,10 +47,24 @@ def driver(request):
 
 def custom_click(self):
     # Perform additional actions before clicking
-    sleep(10)
     
+    # Get time (Before profiling)
+    st_time = datetime.datetime.now()
+    sleep(10)
+
+    # Get time (After profiling)
+    en_time = datetime.datetime.now()
+
+    # Calculate the time difference
+    time_diff = en_time - st_time
+
+    # Convert the time difference to seconds
+    elapsed_time = time_diff.total_seconds()
+
+    print("\nSleep in Monkey Patching: ", elapsed_time)
+
     # Call the original click() method
-    self._original_click()
+    self._original_click()    
 
 # Patching the WebElement class with the custom_click() method
 WebElement._original_click = WebElement.click
