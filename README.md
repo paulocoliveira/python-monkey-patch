@@ -5,6 +5,9 @@
 - This repo contains example code of using **Monkey Patching in Python**, including an automated test case using Selenium Webdriver on LambdaTest Cloud platform.
 - This project uses Pytest framework to run the tests.
 
+## :question: What is Mokey Patching?
+The concept of Monkey Patching introduces a dynamic technique that developers and QAEs can employ to modify the behavior of existing classes, objects, or modules during runtime, without making any direct change to their original source code. This approach enables a remarkable level of flexibility and adaptability, empowering them to extend the functionalities of pre-existing components, fix bugs, and customize behaviors to cater to specific requirements. 
+
 ## Running the Code
 
 To run any of the scripts from command line use the following command:
@@ -19,13 +22,21 @@ By default, the test would be running on LambdaTest Platform on Chrome and Firef
 As a prerequisite for this code, you need:
 1. Download and Install Python
 
-2. Install pytest, and Selenium WebDriver libraries
+2. Download and Install Visual Studio Code
+
+3. Open the project in Visual Studio Code
+
+4. Enter in the cloud-grid folder
+```bash
+cd cloud-grid
+```
+
+5. Install pytest, and Selenium WebDriver libraries
 ```bash
 pip install -r requirements.txt
 ```
-3. Download and Install Visual Studio Code
 
-In order to run this code, please run the command below in the project folder:
+In order to run this cloud grid sample, please run the command below in the project folder:
 ```bash
 pytest
 ```
